@@ -1,0 +1,54 @@
+﻿<Window x:Class="Ranking.OknoPoFormularzu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Ranking"
+        mc:Ignorable="d"
+        Title="OknoPoFormularzu" Height="450" Width="800" Background="DarkOliveGreen">
+    <DockPanel Margin="15,24,174,15">
+        <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,10" Height="36" Width="758">
+            <TextBox x:Name="Slowa" Width="200" Height="30" FontSize="16" Foreground="Black" TextAlignment="Center" TextWrapping="Wrap"/>
+            <Button Content="Dodaj" Command="{Binding DodajCommand}" Style="{StaticResource style}"/>
+            <Button Content="Edytuj" Command="{Binding EdytujCommand}" Style="{StaticResource style}"/>
+            <Button Content="Usuń" Command="{Binding UsunCommand}" Style="{StaticResource style}"/>
+            <ComboBox x:Name="TierComboBox" Width="100" Height="30" Background="Orange" Foreground="Black" Margin="10,0,0,0">
+                <ComboBoxItem Content="S"/>
+                <ComboBoxItem Content="A"/>
+                <ComboBoxItem Content="B"/>
+                <ComboBoxItem Content="C"/>
+                <ComboBoxItem Content="D"/>
+                <ComboBoxItem Content="F"/>
+            </ComboBox>
+        </StackPanel>
+        <Grid Width="350" Height="240">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Content="S" Grid.Row="0" Background="Red" Foreground="Wheat" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ListBox x:Name="TierS" ItemsSource="{Binding TierSItems}" Grid.Row="0" Grid.Column="1"/>
+            <Label Content="A" Grid.Row="1" Background="Yellow" Foreground="Wheat" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ListBox x:Name="TierA" ItemsSource="{Binding TierAItems}" Grid.Row="1" Grid.Column="1"/>
+            <Label Content="B" Grid.Row="2" Background="Green" Foreground="Wheat" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ListBox x:Name="TierB" ItemsSource="{Binding TierBItems}" Grid.Row="2" Grid.Column="1"/>
+            <Label Content="C" Grid.Row="3" Background="Blue" Foreground="Wheat" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ListBox x:Name="TierC" ItemsSource="{Binding TierCItems}" Grid.Row="3" Grid.Column="1"/>
+            <Label Content="D" Grid.Row="4" Background="Purple" Foreground="Wheat" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ListBox x:Name="TierD" ItemsSource="{Binding TierDItems}" Grid.Row="4" Grid.Column="1"/>
+            <Label Content="F" Grid.Row="5" Background="Black" Foreground="Wheat" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <ListBox x:Name="TierF" ItemsSource="{Binding TierFItems}" Grid.Row="5" Grid.Column="1"/>
+            <Button Content="Powrót" Grid.Row="0" Grid.Column="1"  Background="Orange" Width="100" Height="30"  Click="Button_Click" Margin="482,-4,-262,14"/>
+            <Button Content="Nic tu nie ma" Grid.Column="1" Background="Orange" Width="100" Height="30"  Click="Button_Click_1" Margin="482,-34,-262,44"/>
+            <Button Content="Zamknij" Command="{Binding ZamknijCommand}" Grid.Column="1" Background="Orange" Width="100" Height="30" Margin="482,-64,-262,74"/>
+        </Grid>
+    </DockPanel>
+</Window>
